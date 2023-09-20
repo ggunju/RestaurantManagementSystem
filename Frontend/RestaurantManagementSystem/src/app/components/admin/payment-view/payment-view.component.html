@@ -1,0 +1,122 @@
+<div style="background-image: url('assets/images/admin.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh ;">
+    <section>
+        <header style="background-color: rgba(255, 255, 255, 0.9)">
+            <div class="logosec">
+                <div class="logo">ResturantManagemnt</div>
+                <img src="assets/images/logo.jpg" class="icn menuicn" id="menuicn" alt="menu-icon">
+            </div>
+            <h4 style="margin-left: 70%"></h4>
+            <div class="dp">
+
+                <img src="assets/images/Users.png" class="dpicn" alt="dp">
+
+            </div>
+        </header>
+    </section>
+    <div class="main-container">
+        <div class="navcontainer">
+            <nav class="nav">
+                <div class="nav-upper-options">
+                    <div class="nav-option option1">
+                        <a routerLink="/admin/home">
+                            <img src="assets/images/dashboard.png" class="nav-img" alt="dashboard">
+                            <h3 style="margin-left: 20px">Dashboard</h3>
+                        </a>
+                    </div>
+                    <div class="option2 nav-option">
+                        <a routerLink="/admin/customer/veiwall">
+                            <img src="assets/images/people.png" class="nav-img" alt="articles">
+                            <h3 style="margin-left: 20px">Show Customer</h3>
+                        </a>
+                    </div>
+                    <div class="nav-option option3">
+                        <a routerLink="/admin/order/veiwall">
+                            <img src="assets/images/transaction.png" class="nav-img" alt="report">
+                            <h3 style="margin-left: 20px">Show Order</h3>
+                        </a>
+                    </div>
+                    <div class="nav-option option4">
+                        <a routerLink="/admin/payment/veiwall">
+                            <img src="assets/images/provider1.png" class="nav-img" alt="institution">
+                            <h3 style="margin-left: 20px">Show Payments</h3>
+                        </a>
+                    </div>
+                    <div class="nav-option option5">
+                        <a routerLink="/admin/menu">
+                            <img src="assets/images/menu.png" class="nav-img" alt="institution">
+                            <h3 style="margin-left: 20px">Show Menu</h3>
+                        </a>
+                    </div>
+                    <div class="nav-option option6">
+                        <a routerLink="/admin/cashpayment">
+                            <img src="assets/images/cash.png" class="nav-img" alt="institution">
+                            <h3 style="margin-left: 20px">Cash Payments</h3>
+                        </a>
+                    </div>
+                    <div class="nav-option option7">
+                        <a (click)="logout()">
+                            <img src="assets/images/logout.png" class="nav-img" alt="institution">
+                            <h3 style="margin-left: 20px">Logout</h3>
+                        </a>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+        <div class="main ftco-section">
+            <div class="title-container">
+                <h2>All Payments</h2>
+            </div>
+            <div class="box-container">
+
+                <div class="section-content section-content-p30">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <table class='table'>
+                                <thead>
+                                    <tr class='table-dark'>
+                                        <th class="center">PaymentId</th>
+                                        <th class="center">RazorPay Id</th>
+                                        <th class="center">Payment Date</th>
+                                        <th class="center">OrderId</th>
+                                        <th class="center">Total Price</th>
+                                        <th class="center">Paid Amount</th>
+                                        <th class="center">Customer</th>
+                                        <th></th>
+
+
+
+                                    </tr>
+
+                                </thead>
+                                <tr *ngFor="let temppay of payment | paginate: { itemsPerPage: count, currentPage: p }">
+                                    <td class="center">{{temppay.paymentId}}</td>
+                                    <td class="center">{{temppay.razorpayId}}</td>
+                                    <td class="center">{{temppay.paidDate}}</td>
+                                    <td class="center">{{temppay.orderId}}</td>
+                                    <td class="center">{{temppay.totalPrice}}</td>
+                                    <td class="center">{{temppay.paidAmount}}</td>
+                                    <td class="center">{{temppay.customer.customerName}}</td>
+                                    <td class="center">
+                                        <button type="button" class="btn btn-md btn-danger"
+                                            (click)="deleteOrder(temppay.paymentId)">Delete</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="text-right"
+                                style="padding-top: 20px; background-color: rgba(255, 255, 255, 0.8); border: 1px solid rgba(0, 0, 0, 0.2);">
+                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

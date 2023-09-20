@@ -1,0 +1,59 @@
+<section>
+  
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <mat-toolbar color="white" class="mat-elevation-z8" style="margin-bottom: 10px; background-color: #bea797;" >
+
+    <div class="logo" style="margin-top: 20px;">
+      <img src="assets/images/logo.jpg" alt="Restaurant Logo" class="img-responsive">
+    </div>
+
+    <a mat-raised-button color="primary" routerLink="/admin/login" style="margin-left: 20px;padding: auto;">Admin
+      Login</a>
+    <div class="spacer"></div>
+    <a mat-raised-button color="primary" routerLink="/customer/login">Login</a>
+  </mat-toolbar>
+
+  <div id="banner-text" style="
+    background-image: url('assets/images/about.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh;">
+    <h1 style="margin-left: 50px; font-family: Georgia, 'Times New Roman', Times, serif;">Restaurant Management</h1>
+    <p >Just the way you wanted</p>
+    <div class="b_button"style="padding-top: 150px;">
+      <a [routerLink]="['/customer/login']"><span></span>Order Food</a>
+      <div class="b_button">
+        <a [routerLink]="['/customer/login']">
+          <button>Try it out</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="footer">
+  <div class="title_text">
+    <p>CONTACT US</p>
+    <h1>Visit Our Website Today</h1>
+  </div>
+
+  <div class="footer_row">
+    <div class="footer_left">
+      <h1>Working Hours</h1>
+      <p><i class="fas fa-clock"></i>Monday to Friday - 6:00 am to 10:00 pm</p>
+      <p><i class="fas fa-clock"></i>Saturday and Sunday - 6:00 am to 12:00 pm</p>
+    </div>
+
+    <div class="footer_right">
+      <h1>Get In Touch</h1>
+      <p>example@gmail.com<i class="fas fa-paper-plane"></i></p>
+      <p>Pune Mahrashtra<i class="fas fa-map-marker-alt"></i></p>
+      <p>020-2345678<i class="fas fa-phone"></i></p>
+    </div>
+  </div>
+</section>

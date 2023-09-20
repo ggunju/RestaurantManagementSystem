@@ -1,0 +1,16 @@
+<div class="container p-0">
+  <div class="card px-4">
+    <p class="h8 py-3">Payment Details</p>
+    <form (ngSubmit)="createTransaction(paymentForm)" #paymentForm="ngForm">
+      <div class="row gx-3">
+        <div class="col-12">
+          <button class="btn btn-primary mb-3" type="submit"
+                  [disabled]="!paymentForm.valid || isPaymentProcessing">
+            <span class="ps-3">{{ isPaymentProcessing ? 'Processing...' : 'Pay ' + payment.paidAmount + ' ₹' }}</span>
+            <span class="fas fa-arrow-right"></span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

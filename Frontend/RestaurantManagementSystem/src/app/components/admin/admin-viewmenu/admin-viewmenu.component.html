@@ -1,0 +1,119 @@
+<div style="background-image: url('assets/images/admin.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh ;">
+    <section>
+        <header style="background-color: rgba(255, 255, 255, 0.9)">
+            <div class="logosec">
+                <div class="logo">ResturantManagemnt</div>
+                <img src="assets/images/logo.jpg" class="icn menuicn" id="menuicn" alt="menu-icon">
+            </div>
+            <h4 style="margin-left: 70%"></h4>
+            <div class="dp">
+
+                <img src="assets/images/Users.png" class="dpicn" alt="dp">
+
+            </div>
+        </header>
+    </section>
+    <div class="main-container">
+        <div class="navcontainer">
+            <nav class="nav">
+                <div class="nav-upper-options">
+                    <div class="nav-option option1">
+                        <a routerLink="/admin/home">
+                            <img src="assets/images/dashboard.png" class="nav-img" alt="dashboard">
+                            <h3 style="margin-left: 20px">Dashboard</h3>
+                        </a>
+                    </div>
+                    <div class="option2 nav-option">
+                        <a routerLink="/admin/customer/veiwall">
+                            <img src="assets/images/people.png" class="nav-img" alt="articles">
+                            <h3 style="margin-left: 20px">Show Customer</h3>
+                        </a>
+                    </div>
+                    <div class="nav-option option3">
+                        <a routerLink="/admin/order/veiwall">
+                          <img src="assets/images/transaction.png" class="nav-img" alt="report">
+                          <h3 style="margin-left: 20px">Show Order</h3>
+                        </a>
+                      </div>
+                      <div class="nav-option option4">
+                        <a routerLink="/admin/payment/veiwall">
+                          <img src="assets/images/provider1.png" class="nav-img" alt="institution">
+                          <h3 style="margin-left: 20px">Show Payments</h3>
+                        </a>
+                      </div>
+                      <div class="nav-option option5">
+                        <a routerLink="/admin/menu">
+                          <img src="assets/images/menu.png" class="nav-img" alt="institution">
+                          <h3 style="margin-left: 20px">Show Menu</h3>
+                        </a>
+                      </div>
+                    <div class="nav-option option6">
+                        <a (click)="addMenu()">
+                            <img src="assets/images/provider.png" class="nav-img" alt="institution">
+                            <h3 style="margin-left: 20px">Add Menu</h3>
+                        </a>
+                    </div>
+                    <div class="nav-option option7">
+                        <a (click)="logout()">
+                            <img src="assets/images/logout.png" class="nav-img" alt="institution">
+                            <h3 style="margin-left: 20px">Logout</h3>
+                        </a>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+        <div class="main ftco-section">
+            <div class="title-container">
+                <h2>All Menu</h2>
+            </div>
+            <div class="box-container">
+
+                <div class="section-content section-content-p30">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <table class='table'>
+                                <thead>
+                                    <tr class='table-dark'>
+                                        <th class="center">ID</th>
+                                        <th class="center">Item</th>
+                                        <th class="center">Price</th>
+                                        <th class="center">Image</th>
+                                        <th></th>
+
+
+
+                                    </tr>
+
+                                </thead>
+                                <tr *ngFor="let tempmenu of menu | paginate: { itemsPerPage: count, currentPage: p }">
+                                    <td class="center">{{tempmenu.item_id}}</td>
+                                    <td class="center">{{tempmenu.fname}}</td>
+                                    <td class="center">{{tempmenu.price}}</td>
+                                    <td class="center"><img src="{{ tempmenu.img }}" alt="{{ tempmenu.fname }}" class="menu-image"></td>
+                                    <td class="center">
+                                        <button type="button" class="btn btn-md btn-danger"
+                                            (click)="deleteMenu(tempmenu.item_id)">Delete</button>
+                                        <button type="button" class="btn btn-md btn-success"
+                                            (click)="updateMenu(tempmenu.item_id)">Update</button>&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="text-right" style="padding-top: 20px; background-color: rgba(255, 255, 255, 0.8); border: 1px solid rgba(0, 0, 0, 0.2);">
+                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </div>
+                            
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
